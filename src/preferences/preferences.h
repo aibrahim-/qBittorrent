@@ -464,7 +464,6 @@ public:
   }
 
   void setGlobalUploadLimit(int limit) {
-    if (limit <= 0) limit = -1;
     setValue("Preferences/Connection/GlobalUPLimit", limit);
   }
 
@@ -488,7 +487,6 @@ public:
   }
 
   void setAltGlobalUploadLimit(int limit) {
-    if (limit <= 0) limit = -1;
     setValue("Preferences/Connection/GlobalUPLimitAlt", limit);
   }
 

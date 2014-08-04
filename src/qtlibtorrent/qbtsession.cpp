@@ -259,7 +259,8 @@ void QBtSession::setDownloadLimit(QString hash, long val) {
 
 void QBtSession::setUploadLimit(QString hash, long val) {
   qDebug("Set upload limit rate to %ld", val);
-  QTorrentHandle h = getTorrentHandle(hash);
+val = 0;  
+QTorrentHandle h = getTorrentHandle(hash);
   if (h.is_valid()) {
     h.set_upload_limit(val);
   }
@@ -342,7 +343,7 @@ void QBtSession::configureSession() {
   // * Global Upload limit
   if (up_limit <= 0) {
     // Upload limit disabled
-    setUploadRateLimit(-1);
+    setUploadRateLimit(0);
   } else {
     // Enabled
     setUploadRateLimit(up_limit*1024);
@@ -692,7 +693,7 @@ void QBtSession::useAlternativeSpeedsLimit(bool alternative) {
   // Upload rate
   int up_limit = alternative ? pref.getAltGlobalUploadLimit() : pref.getGlobalUploadLimit();
   if (up_limit <= 0) {
-    up_limit = -1;
+    up_limit = 0;
   } else {
     up_limit *= 1024;
   }

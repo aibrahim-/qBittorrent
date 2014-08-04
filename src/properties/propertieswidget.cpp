@@ -324,7 +324,7 @@ void PropertiesWidget::loadDynamicData() {
       wasted->setText(misc::friendlyUnit(status.total_failed_bytes+status.total_redundant_bytes));
       upTotal->setText(misc::friendlyUnit(status.all_time_upload) + " ("+misc::friendlyUnit(status.total_payload_upload)+" "+tr("this session")+")");
       dlTotal->setText(misc::friendlyUnit(status.all_time_download) + " ("+misc::friendlyUnit(status.total_payload_download)+" "+tr("this session")+")");
-      lbl_uplimit->setText(h.upload_limit() <= 0 ? QString::fromUtf8("∞") : misc::friendlyUnit(h.upload_limit())+tr("/s", "/second (i.e. per second)"));
+      lbl_uplimit->setText(h.upload_limit() <= 0 ? QString::fromUtf8("0") : misc::friendlyUnit(h.upload_limit())+tr("/s", "/second (i.e. per second)"));
       lbl_dllimit->setText(h.download_limit() <= 0 ? QString::fromUtf8("∞") : misc::friendlyUnit(h.download_limit())+tr("/s", "/second (i.e. per second)"));
       QString elapsed_txt = misc::userFriendlyDuration(status.active_time);
       if (h.is_seed(status)) {
