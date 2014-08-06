@@ -632,9 +632,6 @@ void MainWindow::on_actionSet_global_upload_limit_triggered() {
   if (ok) {
     qDebug("Setting global upload rate limit to %.1fKb/s", new_limit/1024.);
     QBtSession::instance()->setUploadRateLimit(new_limit);
-    if (new_limit <= 0)
-      Preferences().setGlobalUploadLimit(-1);
-    else
       Preferences().setGlobalUploadLimit(new_limit/1024.);
   }
 }
